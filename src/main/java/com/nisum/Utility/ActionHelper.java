@@ -11,4 +11,15 @@ public class ActionHelper {
 		this.driver = driver;
 	}
 
+	public void actionMethodwithClick(WebElement ele) {
+		Actions act = new Actions(driver);
+		act.moveToElement(ele).build().perform();
+		ele.click();
+	}
+
+	public void actionMethod(WebElement ele) {
+		Actions act = new Actions(driver);
+		act.moveToElement(ele).build().perform();
+	}
+
 }

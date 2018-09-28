@@ -1,20 +1,16 @@
 package com.nisum.pageObjects;
 
-
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.nisum.managers.FileReaderManager;
+import com.nisum.Utility.ActionHelper;
+import com.nisum.Utility.WaitHelper;
 
 public class HomePage {
-	WebDriver driver;	
+	WebDriver driver;
+	WaitHelper waithelper;
+	ActionHelper actionhelper;
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
@@ -26,29 +22,32 @@ public class HomePage {
 
 	@FindBy(xpath = "(//a[contains(text(),'Tea Kettles')])[1]")
 	WebElement teakettleLink;
-	
-	public void actionMethod(WebElement ele){
+
+/*	public void actionMethod(WebElement ele) {
 		Actions act = new Actions(driver);
 		act.moveToElement(ele).build().perform();
 	}
-	
-	public void actionMethodwithClick(WebElement ele){
+
+	public void actionMethodwithClick(WebElement ele) {
 		Actions act = new Actions(driver);
 		act.moveToElement(ele).build().perform();
 		ele.click();
-	}
-	
+	}*/
+
+/*	@SuppressWarnings("deprecation")
 	public void waitForElementclickable(WebElement ele) throws NumberFormatException, Exception {
 		long timeout = FileReaderManager.getInstance().getConfigReader().getExplicitWait();
 		WebDriverWait wait = new WebDriverWait(driver, timeout);
 		wait.withTimeout(timeout, TimeUnit.SECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(ele));
+	}*/
+
+	public void clickonTeaKettle() throws NumberFormatException, Exception {
+		waithelper = new WaitHelper(driver);
+		actionhelper = new ActionHelper(driver);
+		actionhelper.actionMethod(cookwareLink);
+		waithelper.waitForElementclickable(teakettleLink);
+		actionhelper.actionMethodwithClick(teakettleLink);
 	}
-	
-	public void clickonTeaKettle() throws NumberFormatException, Exception{
-		actionMethod(cookwareLink);
-		this.waitForElementclickable(teakettleLink);	
-		this.actionMethodwithClick(teakettleLink);
-	}
-	
+
 }
