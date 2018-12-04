@@ -1,0 +1,10 @@
+selenium test
+
+
+selenium is an automation toool
+
+
+public wait(){
+
+system.out.println("test");
+}
