@@ -1,5 +1,6 @@
 package com.nisum.testCases;
 
+import org.testng.SkipException;
 import org.testng.annotations.Test;
 
 import com.nisum.Utility.AlertHelper;
@@ -32,7 +33,7 @@ public class TestScenario extends DriverScript {
 		alerthelper = new AlertHelper(driver);
 	}
 
-	@Test
+	@Test(enabled=false)
 	public void ScenarioTest() {
 		try {
 			homepage.clickonTeaKettle();
@@ -44,8 +45,12 @@ public class TestScenario extends DriverScript {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-
+		}	
 	}
 
+	@Test
+	public void skipTest(){
+		throw new SkipException("Test is not ready");
+		}
+	
 }

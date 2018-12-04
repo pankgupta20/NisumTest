@@ -5,7 +5,7 @@
     <classes>
       <class name="com.nisum.testCases.TestScenario">
         <methods>
-          <include name="ScenarioTest"/>
+          <include name="skipTest"/>
           <include name="endTest"/>
           <include name="setUp"/>
         </methods>

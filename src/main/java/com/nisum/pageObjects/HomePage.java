@@ -23,16 +23,6 @@ public class HomePage {
 	@FindBy(xpath = "(//a[contains(text(),'Tea Kettles')])[1]")
 	WebElement teakettleLink;
 
-/*	public void actionMethod(WebElement ele) {
-		Actions act = new Actions(driver);
-		act.moveToElement(ele).build().perform();
-	}
-
-	public void actionMethodwithClick(WebElement ele) {
-		Actions act = new Actions(driver);
-		act.moveToElement(ele).build().perform();
-		ele.click();
-	}*/
 
 /*	@SuppressWarnings("deprecation")
 	public void waitForElementclickable(WebElement ele) throws NumberFormatException, Exception {
